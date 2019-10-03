@@ -33,6 +33,8 @@ from logging.handlers import RotatingFileHandler
 from optparse import OptionParser
 from tempfile import NamedTemporaryFile
 
+import subprocess
+
 __version__ = '0.3.0'
 
 HISTORY_FILE = '~/.vimv_history'
@@ -99,7 +101,7 @@ def main():
             print('Directory "%s"' % dir)
 
         #vi temp_file
-        os.system('%s %s' % (options.editor, temp_file.name))
+        subprocess.call([options.editor, temp_file.name])
 
         #read temp_file, then delete
         try:
