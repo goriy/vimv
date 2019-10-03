@@ -122,7 +122,7 @@ def main():
 
             if new_filename:
                 target = os.path.abspath(os.path.join(dir, os.path.expanduser(new_filename)))
-                os.system('mv "%s" "%s"' % (source, target))
+                os.rename(source, target)
             else:
                 target = ''
                 try:
